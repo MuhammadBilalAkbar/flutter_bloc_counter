@@ -30,13 +30,17 @@ class CounterPage extends StatelessWidget {
               children: [
                 IconButton(
                   // onPressed: counterCubit.increment,
-                  onPressed: () => counterCubit.increment(),
+                  // onPressed: () => counterCubit.increment(),
+                  /// Senior Dev / Flutter Recommended
+                  onPressed: () => context.read<CounterCubit>().increment(),
                   icon: Icon(Icons.add, size: 30),
                 ),
                 const SizedBox(width: 8),
                 IconButton(
                   // onPressed: counterCubit.decrement,
-                  onPressed: () => counterCubit.decrement(),
+                  // onPressed: () => counterCubit.decrement(),
+                  /// Senior Dev / Flutter Recommended
+                  onPressed: () => context.read<CounterCubit>().decrement(),
                   icon: Icon(Icons.remove, size: 30),
                 ),
               ],
@@ -55,14 +59,18 @@ class CounterPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 IconButton(
-                  // onPressed: counterCubit.increment,
-                  onPressed: () => counterBloc.add(IncrementEvent()),
+                  // onPressed: () => counterBloc.add(IncrementEvent()),
+                  /// Senior Dev / Flutter Recommended
+                  onPressed: () =>
+                      context.read<CounterBloc>().add(IncrementEvent()),
                   icon: Icon(Icons.add, size: 30),
                 ),
                 const SizedBox(width: 8),
                 IconButton(
-                  // onPressed: counterCubit.decrement,
-                  onPressed: () => counterBloc.add(DecrementEvent()),
+                  // onPressed: () => counterBloc.add(DecrementEvent()),
+                  /// Senior Dev / Flutter Recommended
+                  onPressed: () =>
+                      context.read<CounterBloc>().add(DecrementEvent()),
                   icon: Icon(Icons.remove, size: 30),
                 ),
               ],
